@@ -29,7 +29,7 @@
 
 <p>診察時間：約40分</p>
 
-<button onclick="location.href='reserve.html?type=first'">
+<button onclick="localStorage.setItem('reservationType','first'); location.href='calendar.html';">
   初診予約
 </button>
 
@@ -43,7 +43,7 @@
 
 <p>診察時間：約10分</p>
 
-<button onclick="location.href='reserve.html?type=repeat'">
+<button onclick="localStorage.setItem('reservationType','repeat'); location.href='calendar.html';">
   再診予約
 </button>
 

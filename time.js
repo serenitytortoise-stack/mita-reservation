@@ -4,9 +4,7 @@ const container = document.getElementById("timeList");
 
 let interval = 10;
 
-if(type==="first"){
-    interval=40;
-}
+
 
 for(let h=11;h<20;h++){
 

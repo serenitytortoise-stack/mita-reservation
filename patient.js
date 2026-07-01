@@ -4,14 +4,21 @@ const name=document.getElementById("name").value;
 const tel=document.getElementById("tel").value;
 const mail=document.getElementById("mail").value;
 
-if(name==""){
+if(name===""){
     alert("お名前を入力してください");
     return;
 }
 
-localStorage.setItem("patientName",name);
-localStorage.setItem("patientTel",tel);
-localStorage.setItem("patientMail",mail);
+const reservation = {
+    type: localStorage.getItem("reservationType"),
+    date: localStorage.getItem("reservationDate"),
+    time: localStorage.getItem("reservationTime"),
+    name: name,
+    tel: tel,
+    mail: mail
+};
+
+localStorage.setItem("latestReservation", JSON.stringify(reservation));
 
 location.href="complete.html";
 

@@ -26,5 +26,7 @@ function checkDate() {
     return;
   }
 
-  localStorage.setItem("reservationDate", dateInput);
- location.href="time.html";
+ localStorage.setItem("reservationDate", dateInput);
+location.href="time.html";
+
+}
