@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>患者情報入力</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>三田メンタルクリニック</h1>
+<p>患者情報</p>
+</header>
+
+<main>
+
+<div class="card">
+
+<h2>患者情報を入力してください</h2>
+
+<p>お名前</p>
+<input type="text" id="name" style="width:100%;padding:10px;">
+
+<p>電話番号</p>
+<input type="tel" id="tel" style="width:100%;padding:10px;">
+
+<p>メールアドレス</p>
+<input type="email" id="mail" style="width:100%;padding:10px;">
+
+<br><br>
+
+<button onclick="savePatient()">
+予約確認へ
+</button>
+
+</div>
+
+</main>
+
+<script src="patient.js"></script>
+
+</body>
+</html>

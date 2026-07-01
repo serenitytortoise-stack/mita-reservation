@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日付選択 | 三田メンタルクリニック</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<header>
+  <h1>三田メンタルクリニック</h1>
+  <p>日付選択</p>
+</header>
+
+<main>
+  <div class="card">
+    <h2>予約日を選択してください</h2>
+    <p>予約可能日：水曜日・日曜日</p>
+    <p>予約可能期間：本日から1か月先まで</p>
+
+    <label for="date">日付</label><br><br>
+    <input type="date" id="date">
+
+    <br><br>
+
+    <button onclick="checkDate()">次へ</button>
+  </div>
+</main>
+
+<footer>
+  <p>© 三田メンタルクリニック</p>
+</footer>
+
+<script src="calendar.js"></script>
+</body>
+</html>
