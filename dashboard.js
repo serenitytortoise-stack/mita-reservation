@@ -1,17 +1,14 @@
-import { db } from "../firebase.js";
+import { db } from "./firebase.js";
 import {
   collection,
-  getDocs,
-  query,
-  orderBy
+  getDocs
 } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
 
 const count = document.getElementById("count");
 const list = document.getElementById("reservationList");
 
 async function loadReservations() {
-  const q = query(collection(db, "reservations"), orderBy("date"), orderBy("time"));
-  const snapshot = await getDocs(q);
+  const snapshot = await getDocs(collection(db, "reservations"));
 
   count.textContent = snapshot.size + "件";
 
@@ -27,8 +24,8 @@ async function loadReservations() {
     const typeName = r.type === "first" ? "初診" : "再診";
 
     html += `
-      <div style="border-bottom:1px solid #ddd; padding:15px 0;">
-        <p><strong>${r.date} ${r.time}</strong></p>
+      <div style="border-bottom:1px solid #ccc;padding:15px;">
+        <h3>${r.date} ${r.time}</h3>
         <p>予約種別：${typeName}</p>
         <p>患者名：${r.name}</p>
         <p>電話：${r.tel}</p>

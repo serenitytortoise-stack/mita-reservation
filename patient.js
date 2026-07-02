@@ -1,25 +1,33 @@
-function savePatient(){
+import { db } from "./firebase.js";
+import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
 
-const name=document.getElementById("name").value;
-const tel=document.getElementById("tel").value;
-const mail=document.getElementById("mail").value;
+const button = document.getElementById("reserveButton");
 
-if(name===""){
-    alert("お名前を入力してください");
-    return;
-}
+button.addEventListener("click", async function () {
+  alert("ボタン処理開始");
 
-const reservation = {
+  const name = document.getElementById("name").value;
+  const tel = document.getElementById("tel").value;
+  const mail = document.getElementById("mail").value;
+
+  const reservation = {
     type: localStorage.getItem("reservationType"),
     date: localStorage.getItem("reservationDate"),
     time: localStorage.getItem("reservationTime"),
     name: name,
     tel: tel,
-    mail: mail
-};
+    mail: mail,
+    createdAt: serverTimestamp()
+  };
 
-localStorage.setItem("latestReservation", JSON.stringify(reservation));
+  try {
+    alert("Firebaseに保存します");
+    await addDoc(collection(db, "reservations"), reservation);
+    alert("保存できました");
 
-location.href="complete.html";
-
-}
+    localStorage.setItem("latestReservation", JSON.stringify(reservation));
+    location.href = "complete.html";
+  } catch (error) {
+    alert("保存エラー：" + error.message);
+  }
+});
