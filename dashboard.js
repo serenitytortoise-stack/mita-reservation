@@ -1,40 +1,73 @@
 import { db } from "./firebase.js";
 import {
   collection,
-  getDocs
+  deleteDoc,
+  doc,
+  onSnapshot
 } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
 
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
 const count = document.getElementById("count");
 const list = document.getElementById("reservationList");
 
-async function loadReservations() {
-  const snapshot = await getDocs(collection(db, "reservations"));
+function loadReservations() {
+  onSnapshot(collection(db, "reservations"), (snapshot) => {
+    count.textContent = snapshot.size + "件";
 
-  count.textContent = snapshot.size + "件";
+    if (snapshot.empty) {
+      list.innerHTML = "予約はありません";
+      return;
+    }
 
-  if (snapshot.empty) {
-    list.innerHTML = "予約はありません";
+    let html = "";
+
+    snapshot.forEach((document) => {
+      const r = document.data();
+      const typeName = r.type === "first" ? "初診" : "再診";
+
+      html += `
+        <div style="border-bottom:1px solid #ccc;padding:15px;">
+          <h3>${r.date} ${r.time}</h3>
+          <p>予約種別：${typeName}</p>
+          <p>患者名：${r.name}</p>
+          <p>電話：${r.tel}</p>
+          <p>メール：${r.mail}</p>
+          <button onclick="deleteReservation('${document.id}')">削除</button>
+        </div>
+      `;
+    });
+
+    list.innerHTML = html;
+  });
+}
+
+window.deleteReservation = async function(id) {
+  const ok = confirm("この予約を削除しますか？");
+
+  if (!ok) {
     return;
   }
 
-  let html = "";
+  await deleteDoc(doc(db, "reservations", id));
 
-  snapshot.forEach((doc) => {
-    const r = doc.data();
-    const typeName = r.type === "first" ? "初診" : "再診";
+  alert("削除しました");
 
-    html += `
-      <div style="border-bottom:1px solid #ccc;padding:15px;">
-        <h3>${r.date} ${r.time}</h3>
-        <p>予約種別：${typeName}</p>
-        <p>患者名：${r.name}</p>
-        <p>電話：${r.tel}</p>
-        <p>メール：${r.mail}</p>
-      </div>
-    `;
-  });
+  loadReservations();
+};
 
-  list.innerHTML = html;
-}
+const auth = getAuth();
 
-loadReservations();
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    loadReservations();
+  } else {
+    alert("ログインしてください");
+    location.href = "login.html";
+  }
+});
+document.getElementById("logoutButton").addEventListener("click", async () => {
+  const auth = getAuth();
+  await signOut(auth);
+  alert("ログアウトしました");
+  location.href = "login.html";
+});
