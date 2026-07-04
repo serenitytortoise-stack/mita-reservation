@@ -18,9 +18,14 @@
 <div class="card">
 <h2>予約一覧</h2>
 <button id="logoutButton">ログアウト</button>
+<button onclick="location.href='patient.html'">患者一覧</button>
+<button onclick="location.href='reserve.html'">予約ページ</button>
+<button onclick="location.href='calendar.html'">カレンダー</button>
 <p>予約件数</p>
 <h1 id="count">0件</h1>
-
+<input id="searchInput" type="text" placeholder="患者名・電話・メールで検索">
+<button id="searchButton">検索</button>
+<button id="clearSearchButton">解除</button>
 <hr>
 
 <div id="reservationList">

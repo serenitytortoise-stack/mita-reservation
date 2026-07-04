@@ -7,6 +7,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
 
 const count = document.getElementById("count");
+
 const list = document.getElementById("reservationList");
 
 async function loadReservations() {

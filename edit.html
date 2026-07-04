@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>予約編集</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>三田メンタルクリニック</h1>
+  <p>予約編集</p>
+</header>
+
+<main>
+  <div class="card">
+    <h2>予約内容を編集</h2>
+
+    <label>患者名</label>
+    <input id="name" type="text">
+
+    <label>電話番号</label>
+    <input id="phone" type="text">
+
+    <label>メール</label>
+    <input id="email" type="email">
+
+    <label>予約日時</label>
+    <input id="datetime" type="datetime-local">
+
+    <label>予約種別</label>
+    <select id="type">
+      <option value="初診">初診</option>
+      <option value="再診">再診</option>
+    </select>
+
+    <button id="saveButton">保存</button>
+    <button onclick="location.href='dashboard.html'">戻る</button>
+  </div>
+</main>
+
+<script type="module" src="edit.js"></script>
+</body>
+</html>
