@@ -1,38 +1,92 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>管理画面 | 三田メンタルクリニック</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理画面｜三田メンタルクリニック</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-<h1>三田メンタルクリニック</h1>
-<p>管理画面</p>
+  <h1>三田メンタルクリニック</h1>
+  <p>管理画面</p>
 </header>
 
 <main>
-<div class="card">
-<h2>予約一覧</h2>
-<button id="logoutButton">ログアウト</button>
-<button onclick="location.href='patient.html'">患者一覧</button>
-<button onclick="location.href='reserve.html'">予約ページ</button>
-<button onclick="location.href='calendar.html'">カレンダー</button>
-<p>予約件数</p>
-<h1 id="count">0件</h1>
-<input id="searchInput" type="text" placeholder="患者名・電話・メールで検索">
-<button id="searchButton">検索</button>
-<button id="clearSearchButton">解除</button>
-<hr>
+  <div class="card">
+    <h2>予約一覧</h2>
 
-<div id="reservationList">
-予約はありません
-</div>
+    <button id="logoutButton">ログアウト</button>
+    <button onclick="location.href='patient.html'">患者一覧</button>
+    <button onclick="location.href='reserve.html'">予約ページ</button>
+    <button onclick="location.href='calendar.html'">カレンダー</button>
 
-</div>
+    <p>予約件数</p>
+    <h1 id="count">0件</h1>
+
+    <input id="searchInput" type="text" placeholder="患者名・電話・メールで検索">
+    <button id="searchButton">検索</button>
+    <button id="clearSearchButton">解除</button>
+
+    <hr>
+
+    <h2>診療時間設定</h2>
+
+    <label>開始時間</label>
+    <input id="startTimeInput" type="time" value="11:00">
+
+    <label>終了時間</label>
+    <input id="endTimeInput" type="time" value="19:20">
+
+    <label>予約間隔（分）</label>
+    <input id="intervalInput" type="number" value="10">
+
+    <button id="saveScheduleButton">診療時間を保存</button>
+
+    <p id="scheduleStatus"></p>
+
+    <hr>
+
+    <h2>日付ごとの診療時間設定</h2>
+
+    <label>日付</label>
+    <input id="specialDateInput" type="date">
+
+    <label>開始時間</label>
+    <input id="specialStartTimeInput" type="time" value="11:00">
+
+    <label>終了時間</label>
+    <input id="specialEndTimeInput" type="time" value="19:20">
+
+    <label>予約間隔（分）</label>
+    <input id="specialIntervalInput" type="number" value="10">
+
+    <button id="saveSpecialScheduleButton">この日の診療時間を保存</button>
+
+    <div id="specialScheduleList">
+      個別設定はありません
+    </div>
+
+    <hr>
+
+    <h2>休診日設定</h2>
+
+    <input id="closedDateInput" type="date">
+    <button id="addClosedDateButton">休診日を追加</button>
+
+    <div id="closedDateList">
+      休診日はありません
+    </div>
+
+    <hr>
+
+    <div id="reservationList">
+      予約はありません
+    </div>
+
+  </div>
 </main>
 
 <script type="module" src="dashboard.js"></script>

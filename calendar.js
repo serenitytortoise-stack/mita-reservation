@@ -1,8 +1,28 @@
-function checkDate() {
+import { db } from "./firebase.js";
+
+import {
+  collection,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
+
+async function checkDate() {
   const dateInput = document.getElementById("date").value;
 
   if (dateInput === "") {
     alert("日付を選択してください");
+    return;
+  }
+
+  const closedDates = [];
+
+  const snapshot = await getDocs(collection(db, "closedDates"));
+
+  snapshot.forEach((doc) => {
+    closedDates.push(doc.data().date);
+  });
+
+  if (closedDates.includes(dateInput)) {
+    alert("この日は休診日です。別の日を選択してください。");
     return;
   }
 
@@ -26,7 +46,8 @@ function checkDate() {
     return;
   }
 
- localStorage.setItem("reservationDate", dateInput);
-location.href="time.html";
-
+  localStorage.setItem("reservationDate", dateInput);
+  location.href = "time.html";
 }
+
+window.checkDate = checkDate;
