@@ -59,7 +59,7 @@ async function loadTimes() {
   }
 
   const q = query(
-    collection(db, "reservations"),
+    collection(db, "bookedSlots"),
     where("date", "==", date)
   );
 
