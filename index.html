@@ -1,70 +1,58 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>三田メンタルクリニック WEB予約</title>
-
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三田メンタルクリニック WEB予約</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-
-<h1>三田メンタルクリニック</h1>
-
-<p>24時間WEB予約</p>
-
+  <h1>三田メンタルクリニック</h1>
+  <p>WEB予約システム</p>
 </header>
 
 <main>
+  <div class="card">
+    <h2>ご予約はこちら</h2>
+    <p>初診・再診の予約、予約確認・キャンセルができます。</p>
 
-<div class="card">
+    <div class="menu-grid">
 
-<h2>初診予約</h2>
+      <div class="menu-card">
+        <h3>初診予約</h3>
+        <p>初めて受診される方はこちら</p>
+        <p>診療時間：約40分</p>
+        <button onclick="localStorage.setItem('reservationType','first'); location.href='calendar.html';">
+          初診予約へ
+        </button>
+      </div>
 
-<p>初めて受診される方はこちら</p>
+      <div class="menu-card">
+        <h3>再診予約</h3>
+        <p>再診の方はこちら</p>
+        <p>診療時間：約10分</p>
+        <button onclick="localStorage.setItem('reservationType','repeat'); location.href='calendar.html';">
+          再診予約へ
+        </button>
+      </div>
 
-<p>診察時間：約40分</p>
+      <div class="menu-card">
+        <h3>予約確認・キャンセル</h3>
+        <p>予約番号で確認・キャンセルできます</p>
+        <button onclick="location.href='cancel.html'">
+          確認・キャンセルへ
+        </button>
+      </div>
 
-<button onclick="localStorage.setItem('reservationType','first'); location.href='calendar.html';">
-  初診予約
-</button>
-
-</div>
-
-<div class="card">
-
-<h2>再診予約</h2>
-
-<p>再診の方はこちら</p>
-
-<p>診察時間：約10分</p>
-
-<button onclick="localStorage.setItem('reservationType','repeat'); location.href='calendar.html';">
-  再診予約
-</button>
-
-</div>
-<div class="card">
-
-  <h2>予約の確認・キャンセル</h2>
-
-  <p>予約内容の確認やキャンセルはこちら</p>
-
-  <button onclick="location.href='cancel.html'">
-    予約確認・キャンセル
-  </button>
-
-</div>
+    </div>
+  </div>
 </main>
 
 <footer>
-
-<p>© 三田メンタルクリニック</p>
-
+  <p>© 三田メンタルクリニック</p>
 </footer>
 
 </body>
