@@ -3,52 +3,164 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>三田メンタルクリニック WEB予約</title>
+  <title>三田メンタルクリニック｜さいたま市浦和区の精神科・心療内科</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 
 <body>
 
-<header>
-  <h1>三田メンタルクリニック</h1>
-  <p>WEB予約システム</p>
+<header class="site-header">
+  <div class="header-inner">
+    <h1>三田メンタルクリニック</h1>
+
+    <nav>
+      <a href="#about">当院について</a>
+      <a href="#medical">診療案内</a>
+      <a href="#hours">診療時間</a>
+      <a href="#doctor">院長紹介</a>
+      <a href="#access">アクセス</a>
+      <a class="reserve-btn" href="reserve-index.html">WEB予約</a>
+    </nav>
+  </div>
 </header>
 
 <main>
-  <div class="card">
-    <h2>ご予約はこちら</h2>
-    <p>初診・再診の予約、予約確認・キャンセルができます。</p>
 
-    <div class="menu-grid">
+<section class="hero">
+  <div class="hero-text">
+    <p class="sub-title">さいたま市浦和区の精神科・心療内科</p>
+    <h2>こころに寄り添う診療を</h2>
+    <p>
+      三田メンタルクリニックでは、一人ひとりのお話を丁寧に伺い、
+      それぞれの状況に合わせた診療を心がけています。
+    </p>
+    <a class="main-btn" href="reserve-index.html">WEB予約はこちら</a>
+  </div>
+</section>
 
-      <div class="menu-card">
-        <h3>初診予約</h3>
-        <p>初めて受診される方はこちら</p>
-        <p>診療時間：約40分</p>
-        <button onclick="localStorage.setItem('reservationType','first'); location.href='calendar.html';">
-          初診予約へ
-        </button>
-      </div>
+<section id="about" class="section">
+  <h2>当院について</h2>
+  <p>
+    三田メンタルクリニックは、安心して相談できる地域のこころのクリニックを目指しています。
+    精神的な不調や認知症などのお悩みについて、丁寧に診療いたします。
+  </p>
+  <p class="notice">
+    当院はWEB予約制です。電話での予約・お問い合わせは受け付けておりません。
+  </p>
+</section>
 
-      <div class="menu-card">
-        <h3>再診予約</h3>
-        <p>再診の方はこちら</p>
-        <p>診療時間：約10分</p>
-        <button onclick="localStorage.setItem('reservationType','repeat'); location.href='calendar.html';">
-          再診予約へ
-        </button>
-      </div>
+<section id="medical" class="section">
+  <h2>診療案内</h2>
 
-      <div class="menu-card">
-        <h3>予約確認・キャンセル</h3>
-        <p>予約番号で確認・キャンセルできます</p>
-        <button onclick="location.href='cancel.html'">
-          確認・キャンセルへ
-        </button>
-      </div>
+  <ul class="medical-list">
+    <li>うつ病・抑うつ状態</li>
+    <li>適応障害</li>
+    <li>不安障害</li>
+    <li>パニック障害</li>
+    <li>社交不安症</li>
+    <li>双極症</li>
+    <li>統合失調症</li>
+    <li>睡眠障害・不眠症</li>
+    <li>ADHD</li>
+    <li>依存症</li>
+    <li>認知症</li>
+    <li>その他</li>
+  </ul>
 
+  <p class="medical-note">
+    上記以外のお悩みについても、診察の中でご相談いただけます。<br>
+    依存症はアルコール・薬物・ギャンブルなどに対応しています。<br>
+    受診をご希望の方は、WEB予約よりご予約のうえご来院ください。
+  </p>
+</section>
+
+<section id="hours" class="section">
+  <h2>診療時間</h2>
+
+  <table class="hours-table">
+    <tr>
+      <th>診療時間</th>
+      <th>月</th>
+      <th>火</th>
+      <th>水</th>
+      <th>木</th>
+      <th>金</th>
+      <th>土</th>
+      <th>日</th>
+    </tr>
+    <tr>
+      <td>11:00～20:00</td>
+      <td>－</td>
+      <td>－</td>
+      <td>●</td>
+      <td>－</td>
+      <td>－</td>
+      <td>－</td>
+      <td>●</td>
+    </tr>
+  </table>
+
+  <p><strong>最終受付：</strong>19:20</p>
+  <p>初診：約40分　／　再診：約10分</p>
+</section>
+
+<section id="doctor" class="section">
+  <h2>院長紹介</h2>
+
+  <div class="doctor-container">
+    <div class="doctor-photo">
+      <img src="images/director.jpg" alt="院長 三田周平">
+    </div>
+
+    <div class="doctor-profile">
+      <h3>院長　三田 周平</h3>
+
+      <h4>経歴</h4>
+      <ul>
+        <li>2020年～2022年　春日部中央総合病院</li>
+        <li>2022年～2025年　埼玉県立精神医療センター</li>
+      </ul>
+
+      <h4>資格</h4>
+      <ul>
+        <li>精神保健指定医</li>
+        <li>日本精神神経学会認定 精神科専門医</li>
+      </ul>
+
+      <h4>ごあいさつ</h4>
+      <p>
+        三田メンタルクリニックでは、一人ひとりのお話を丁寧に伺い、
+        それぞれの状況に合わせた診療を心がけています。
+        精神的な不調や認知症などのお悩みについて、
+        安心してご相談いただけるクリニックを目指しております。
+      </p>
     </div>
   </div>
+</section>
+
+<section id="access" class="section">
+  <h2>アクセス</h2>
+
+  <div class="access-box">
+    <p><strong>住所：</strong>〒330-0064 埼玉県さいたま市浦和区岸町7丁目9-14</p>
+    <p><strong>電話番号：</strong>048-822-4814</p>
+    <p><strong>最寄り駅：</strong>浦和駅西口より徒歩約9分</p>
+    <p><strong>駐車場：</strong>3台あり</p>
+  </div>
+
+  <div class="map">
+    <iframe
+      src="https://www.google.com/maps?q=埼玉県さいたま市浦和区岸町7丁目9-14&output=embed"
+      width="100%"
+      height="360"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </div>
+</section>
+
 </main>
 
 <footer>
